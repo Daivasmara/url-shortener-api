@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Daivasmara/url-shortener-root.git"
+    "url": "git+https://github.com/Daivasmara/url-shortener-api.git"
   },
   "keywords": [],
   "author": "Muhammad Daivasmara Denaw",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Daivasmara/url-shortener-root/issues"
+    "url": "https://github.com/Daivasmara/url-shortener-api/issues"
   },
-  "homepage": "https://github.com/Daivasmara/url-shortener-root#readme",
+  "homepage": "https://github.com/Daivasmara/url-shortener-api#readme",
   "devDependencies": {
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.6",
