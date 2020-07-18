@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 // Welcome
 app.get('/', (_req, res) => {
   res.json({
-    message: 'Welcome to URL Shortener API',
+    message: 'URL Shortener API',
   });
 });
 

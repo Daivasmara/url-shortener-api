@@ -4,7 +4,7 @@ import Joi from '@hapi/joi';
 import { Middlewares } from '@helpers/interfaces';
 import { Link } from '@models/index';
 import { LinkInterface } from '@models/link';
-import { HASH_RETRY_COUNT } from '@helpers/constants';
+import { HASH_LENGTH, HASH_RETRY_COUNT } from '@helpers/constants';
 
 class LinkController {
   static getAllLink: Middlewares = async (_req, res, next) => {
@@ -51,7 +51,7 @@ class LinkController {
       }
 
       await retry(async () => {
-        hash = randomstring.generate(5);
+        hash = randomstring.generate(HASH_LENGTH);
         const hashExist = await Link.findByPk(hash);
 
         if (hashExist) {

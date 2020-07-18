@@ -2,8 +2,6 @@ import { Sequelize } from 'sequelize';
 
 interface DBInterface {
   _sequelize: Sequelize,
-  testConnection(): void,
-  syncTable(): void,
 }
 
 type DBParam = string | null | undefined;
