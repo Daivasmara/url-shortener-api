@@ -1,5 +1,5 @@
+import 'dotenv/config';
 import 'module-alias/register';
-import dotenv from 'dotenv';
 import express from 'express';
 import {
   cors,
@@ -11,31 +11,19 @@ import {
 } from '@middlewares/index';
 import v1 from '@v1/index';
 import { ENVIRONMENT } from '@helpers/constants';
-import DB from '@db/index';
+import db from '@db/index';
 
-dotenv.config();
 const {
   NODE_ENV,
   PORT,
-  DB_HOST,
-  DB_PORT,
-  DB_USER,
-  DB_PASSWORD,
-  DB_NAME,
 } = process.env;
 
 // Express Initialization
 const app = express();
 
-// DB Connection
-const db = new DB({
-  DB_HOST,
-  DB_PORT,
-  DB_USER,
-  DB_PASSWORD,
-  DB_NAME,
-});
+// Test DB Connection & Sync Models
 db.testConnection();
+db.syncTable();
 
 // Middlewares
 app.use(cors());

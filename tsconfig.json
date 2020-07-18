@@ -46,6 +46,7 @@
     "paths": {
       "@root/*": ["./*"],
       "@db/*": ["db/*"],
+      "@models/*": ["models/*"],
       "@middlewares/*": ["middlewares/*"],
       "@helpers/*": ["utils/helpers/*"],
       "@v1/*": ["versions/v1/*"]
