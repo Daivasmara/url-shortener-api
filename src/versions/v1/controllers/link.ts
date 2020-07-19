@@ -21,6 +21,7 @@ class LinkController {
       const { hash } = req.params;
       const linkExist = await Link.findByPk(hash);
       if (!linkExist) {
+        res.status(400);
         throw new Error('Link not found');
       }
       res.json({ message: linkExist });
