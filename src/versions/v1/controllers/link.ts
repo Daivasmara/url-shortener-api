@@ -47,6 +47,7 @@ class LinkController {
     try {
       const linkExist = await Link.findOne({ where: { link } });
       if (linkExist) {
+        res.status(201);
         res.json({ message: linkExist });
         return;
       }
