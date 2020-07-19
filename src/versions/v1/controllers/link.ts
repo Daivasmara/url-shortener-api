@@ -36,7 +36,7 @@ class LinkController {
 
     try {
       const schema = Joi.object({
-        link: Joi.string().required(),
+        link: Joi.string().uri().required(),
       });
       await schema.validateAsync({ link });
     } catch (err) {
@@ -66,6 +66,7 @@ class LinkController {
 
       const record: LinkInterface = { hash, link };
       const message = await Link.create(record);
+      res.status(201);
       res.json({ message });
     } catch (err) {
       next(err);
