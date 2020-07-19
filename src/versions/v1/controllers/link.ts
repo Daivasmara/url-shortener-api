@@ -42,6 +42,7 @@ class LinkController {
     } catch (err) {
       res.status(400);
       next(err);
+      return;
     }
 
     try {
