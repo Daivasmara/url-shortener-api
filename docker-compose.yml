@@ -30,8 +30,6 @@ services:
     volumes:
       - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh
     env_file: ./.env
-    environment:
-      - DB_HOST=api-database
     command: "wait-for-it.sh --strict api-database:5432 -- npm start"
     depends_on:
       - api-database
