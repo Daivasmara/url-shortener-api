@@ -1,6 +1,7 @@
 import randomstring from 'randomstring';
 import retry from 'async-retry';
 import Joi from '@hapi/joi';
+import urlRegex from 'url-regex';
 import { Middlewares } from '@helpers/interfaces';
 import { Link } from '@models/index';
 import { LinkInterface } from '@models/link';
@@ -36,9 +37,12 @@ class LinkController {
 
     try {
       const schema = Joi.object({
-        link: Joi.string().uri().required(),
+        link: Joi.string().required(),
       });
       await schema.validateAsync({ link });
+      if (!urlRegex({ strict: false }).test(link)) {
+        throw new Error('"link" must be a valid URL');
+      }
     } catch (err) {
       res.status(400);
       next(err);
